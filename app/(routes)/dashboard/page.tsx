@@ -11,7 +11,6 @@ import React, { useEffect } from "react";
 
 function Dashboard() {
   const {user}:any=useKindeBrowserClient();
-  const getUser=useQuery(api.user.getUser,{email:user?.email});
   const createUser =  useMutation(api.user.createUser);
   const convex = useConvex();
   useEffect(() => {
