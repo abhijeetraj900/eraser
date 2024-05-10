@@ -18,7 +18,7 @@ function Canvas({onSaveTrigger,fileId,fileData}:{onSaveTrigger:any,fileId:any,fi
         }).then(resp=>console.log(resp))
     }
     return (
-    <div style={{ height: "670px" }}>
+    <div style={{ height: "670px",}}>
    {fileData&& <Excalidraw 
     theme='light'
     initialData={{
@@ -40,6 +40,7 @@ function Canvas({onSaveTrigger,fileId,fileData}:{onSaveTrigger:any,fileId:any,fi
             <MainMenu.DefaultItems.ClearCanvas/>
             <MainMenu.DefaultItems.SaveAsImage/>
             <MainMenu.DefaultItems.ChangeCanvasBackground/>
+            <MainMenu.DefaultItems.ToggleTheme/>
         </MainMenu>
         <WelcomeScreen>
             <WelcomeScreen.Hints.MenuHint/>
