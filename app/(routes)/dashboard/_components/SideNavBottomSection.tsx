@@ -13,6 +13,8 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
+import Constant from "@/app/_constant/Constant";
+import PricingDialog from "./PricingDialog";
 
 function SideNavBottomSection({ onFileCreate, totalFiles }: any) {
   const menuList = [
@@ -57,7 +59,7 @@ function SideNavBottomSection({ onFileCreate, totalFiles }: any) {
             New File
           </Button>
         </DialogTrigger>
-        <DialogContent>
+        {totalFiles<Constant.MAX_FREE_FILE?<DialogContent>
           <DialogHeader>
             <DialogTitle>Create file</DialogTitle>
             <DialogDescription>
@@ -83,13 +85,13 @@ function SideNavBottomSection({ onFileCreate, totalFiles }: any) {
               </Button>
             </DialogClose>
           </DialogFooter>
-        </DialogContent>
+        </DialogContent>:<PricingDialog/>}
       </Dialog>
 
       <div>
         <Progress value={(totalFiles/5)*100} className="mt-4 w-full bg-slate-300" />
         <h2 className="text-[12px] mt-2">
-          <strong>{totalFiles}</strong> Out <strong>5</strong> is used
+          <strong>{totalFiles}</strong> Out <strong>{Constant.MAX_FREE_FILE}</strong> is used
         </h2>
         <h2 className="text-[12px]">Upgrade your plan for unlimited access</h2>
       </div>
